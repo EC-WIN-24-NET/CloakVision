@@ -23,21 +23,17 @@ jobs:
         with:
           dotnet-version: '9.0'
 
-      - name: Restore dependencies
-        run: dotnet restore CloakVision.sln
-
       - name: Build with dotnet
-        run: dotnet build CloakVision.sln --configuration Release --no-restore
+        run: dotnet build CloakVision.sln --configuration Release
 
       - name: dotnet publish
-        run: dotnet publish CloakVision.csproj -c Release -o ./publish --no-build --self-contained false
+        run: dotnet publish CloakVision.csproj -c Release -o ./publish
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
           name: dotnet-app
           path: ./publish
-          retention-days: 1
 
   deploy:
     runs-on: ubuntu-latest
@@ -70,10 +66,3 @@ jobs:
           app-name: 'CloakVision'
           slot-name: 'Production'
           package: ./publish
-          startup-command: 'dotnet CloakVision.dll'
-
-      - name: Verify deployment
-        run: |
-          echo "Deployment completed. Checking application status..."
-          sleep 30
-          curl -f ${{ steps.deploy-to-webapp.outputs.webapp-url }}/health || echo "Health check failed - this is expected if no health endpoint exists"
