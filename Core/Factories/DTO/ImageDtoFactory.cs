@@ -14,7 +14,6 @@ public class ImageDtoFactory : IImageDtoFactory
             Name = displayImage.Name,
             Path = displayImage.Path,
             Description = displayImage.Description,
-            Thumbnail = displayImage.Thumbnail,
             AltText = displayImage.AltText,
         };
     }
@@ -27,7 +26,6 @@ public class ImageDtoFactory : IImageDtoFactory
             Name = imageDisplay.Name,
             Path = imageDisplay.Path,
             Description = imageDisplay.Description,
-            Thumbnail = imageDisplay.Thumbnail,
             CreatedAt = imageDisplay.CreatedAt,
             AltText = imageDisplay.AltText,
         };

@@ -19,10 +19,10 @@ public class ImageController(IImageService imageService, IWebHostEnvironment web
     /// /// </summary>
     /// <param name="guid"></param>
     /// <returns></returns>
-    [HttpGet("{guid:Guid}", Name = "GetEventByGuid")]
+    [HttpGet("{guid:Guid}", Name = "GetImageByGuid")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public async Task<IResult> GetEventByGuid([FromRoute] Guid guid)
+    public async Task<IResult> GetImageByGuid([FromRoute] Guid guid)
     {
         try
         {
@@ -43,22 +43,22 @@ public class ImageController(IImageService imageService, IWebHostEnvironment web
     }
 
     /// <summary>
-    /// Get All Event
+    /// Get All Image
     /// /// </summary>
     /// <returns></returns>
     [HttpGet]
-    [Route("GetAllEvents")]
+    [Route("GetAllImages")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public async Task<IResult> GetAllEventsAsync()
+    public async Task<IResult> GetAllImagesAsync()
     {
         try
         {
-            // Get the Events from the database
-            var eventsAsync = await imageService.GetAllImagesAsync();
-            // Return the events
-            return eventsAsync.Value != null && eventsAsync.Value.Any()
-                ? ApiResponseHelper.Success(eventsAsync)
+            // Get the Images from the database
+            var ImagesAsync = await imageService.GetAllImagesAsync();
+            // Return the Images
+            return ImagesAsync.Value != null && ImagesAsync.Value.Any()
+                ? ApiResponseHelper.Success(ImagesAsync)
                 : ApiResponseHelper.NotFound("No projects found");
         }
         catch (Exception ex)

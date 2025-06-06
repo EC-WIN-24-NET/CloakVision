@@ -10,7 +10,7 @@ namespace Infrastructure.Contexts;
 /// <param name="options"></param>
 public class DataContext(DbContextOptions<DataContext> options) : DbContext(options)
 {
-    public DbSet<ImageEntity> ImageEntities { get; set; }
+    public DbSet<ImageEntity> Images { get; set; }
 
     /*
         # Don't forget to Update the tool first in OS

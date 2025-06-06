@@ -20,11 +20,6 @@ public class ImageEntity
     [Column(TypeName = "nvarchar(250)")]
     public string? Description { get; init; }
 
-    // Store the URL path to the Image (Using Azure Blob Storage or similar)
-    [Column(TypeName = "nvarchar(250)")]
-    [Required]
-    public string? Thumbnail { get; init; }
-
     [Required]
     public DateTime CreatedAt { get; init; } = DateTime.UtcNow;
 

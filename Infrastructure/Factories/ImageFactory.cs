@@ -22,7 +22,6 @@ public class ImageFactory : EntityFactoryBase<Image, ImageEntity>
             Name = imageEntity.Name,
             Path = imageEntity.Path,
             Description = imageEntity.Description,
-            Thumbnail = imageEntity.Thumbnail,
             CreatedAt = imageEntity.CreatedAt,
             AltText = imageEntity.AltText,
         };
@@ -42,7 +41,6 @@ public class ImageFactory : EntityFactoryBase<Image, ImageEntity>
             Name = images.Name,
             Path = images.Path,
             Description = images.Description,
-            Thumbnail = images.Thumbnail,
             CreatedAt = images.CreatedAt,
             AltText = images.AltText,
         };
