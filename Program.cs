@@ -1,5 +1,6 @@
 using System.Reflection;
 using Azure.Identity;
+using Azure.Storage.Blobs;
 using CloakVision.Helpers;
 using CloakVision.Interface;
 using Core;
@@ -12,6 +13,24 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllers();
 builder.Services.AddScoped<ICommonHelpers, CommonHelpers>();
+
+// Enable support for BLob Storage and other Azure services
+var blobStorageAccountName = builder.Configuration["AzureBlobStorage:AccountName"];
+if (string.IsNullOrEmpty(blobStorageAccountName))
+    Console.WriteLine("Blob Storage Account Name is not set in the configuration.");
+
+// Register the BlobServiceClient with Azure Identity for authentication
+builder.Services.AddSingleton(sp =>
+{
+    var configuration = sp.GetService<IConfiguration>();
+    var accountName = configuration?["AzureBlobStorage:AccountName"];
+    if (string.IsNullOrEmpty(accountName))
+        throw new InvalidOperationException(
+            "Blob Storage Account Name is not set in the configuration."
+        );
+    var blobServiceUri = new Uri($"https://{accountName}.blob.core.windows.net/");
+    return new BlobServiceClient(blobServiceUri, new DefaultAzureCredential());
+});
 
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();

@@ -151,7 +151,7 @@ public abstract class ApiResponseHelper : IResult
     /// Returns a 400 Bad Request response with structured error details
     /// https://stackoverflow.blog/2020/03/02/best-practices-for-rest-api-design/
     /// </summary>
-    /// <param name="detail"></param>
+    /// /// <param name="detail"></param>
     /// <param name="statusCode"></param>
     /// <param name="errorData"></param>
     /// <returns></returns>

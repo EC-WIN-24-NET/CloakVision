@@ -16,9 +16,6 @@ public class ImageDisplay
     public string? Description { get; init; }
 
     [Required]
-    public string? Thumbnail { get; init; }
-
-    [Required]
     public DateTime CreatedAt { get; init; } = DateTime.UtcNow;
 
     [Required]
