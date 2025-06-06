@@ -17,12 +17,4 @@
     />
     <PackageReference Include="Microsoft.Extensions.Logging" Version="9.0.5" />
   </ItemGroup>
-  <ItemGroup>
-    <Reference Include="Microsoft.Extensions.Configuration.Abstractions">
-      <HintPath>..\..\..\..\..\..\..\..\..\..\home\georgi\.nuget\packages\microsoft.extensions.configuration.abstractions\9.0.5\lib\net9.0\Microsoft.Extensions.Configuration.Abstractions.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Extensions.Logging.Abstractions">
-      <HintPath>..\..\..\..\..\..\..\..\..\..\home\georgi\.nuget\packages\microsoft.extensions.logging.abstractions\9.0.5\lib\net9.0\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
-    </Reference>
-  </ItemGroup>
 </Project>
