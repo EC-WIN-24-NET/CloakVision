@@ -10,7 +10,7 @@ namespace CloakVision.Controllers;
 /// ImageController
 /// </summary>
 [ApiController]
-[Route("api/[controller]")]
+[Route("/[controller]")]
 public class ImageController(IImageService imageService, IWebHostEnvironment webHostEnvironment)
     : ControllerBase
 {
