@@ -20,19 +20,19 @@ namespace Infrastructure.Migrations
                     Path = table.Column<string>(type: "nvarchar(250)", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(250)", nullable: true),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    AltText = table.Column<string>(type: "nvarchar(250)", nullable: false),
+                    AltText = table.Column<string>(type: "nvarchar(250)", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Images", x => x.Id);
-                }
-            );
+                });
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropTable(name: "Images");
+            migrationBuilder.DropTable(
+                name: "Images");
         }
     }
 }
